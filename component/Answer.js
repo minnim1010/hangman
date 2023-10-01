@@ -1,17 +1,16 @@
 class Answer {
 
   constructor(word) {
-    this.word = word;
+    this.letterList = word.split("");
   }
 
-  findIndexes(c){
-    const indexList = [];
-    this.word.split("").forEach((elem, index) => {
-      if(elem === c){
-        indexList.push(index)
+  findIndexes(matchLetter){
+    return this.letterList.reduce((indexList, letter, i) => {
+      if(letter === matchLetter){
+        indexList.push(i);
       }
-    })
-    return indexList;
+      return indexList;
+    }, [])
   }
 }
 

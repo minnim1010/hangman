@@ -3,6 +3,7 @@ import {GuessWord} from "../component/GuessWord.js";
 import {GuessHistory} from "../component/GuessHistory.js";
 import {Life} from "../component/Life.js";
 import {Alphabet} from "../component/Alphabet.js";
+import {Words} from "../constant/Words.js";
 
 
 const hangman = {
@@ -25,7 +26,8 @@ function onLoad(){
 }
 
 function getAnswerString(){
-  return "cat";
+    const randomIndex = Math.floor(Math.random() * Words.length);
+    return Words[randomIndex];
 }
 
 function getHistoryContainerElement(){
@@ -37,11 +39,10 @@ function getWordContainerElement(){
 }
 
 function render(){
-  renderAlphaBetsView();
-  renderGuessWordView();
+  renderAlphabetsView();
 }
 
-function renderAlphaBetsView() {
+function renderAlphabetsView() {
   const alphabetContainer
     = document.getElementsByClassName('alphabet-container').item(0);
   const alphabetLetters
@@ -51,10 +52,3 @@ function renderAlphaBetsView() {
     alphabet.render(alphabetContainer);
   })
 }
-
-function renderGuessWordView(){
-  hangman.guessWord.render();
-}
-
-
-
