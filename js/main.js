@@ -3,8 +3,7 @@ import {GuessWord} from "../component/GuessWord.js";
 import {GuessHistory} from "../component/GuessHistory.js";
 import {Life} from "../component/Life.js";
 import {Alphabet} from "../component/Alphabet.js";
-import {Words} from "../constant/Words.js";
-
+import {Constants} from "../constant/Constants.js";
 
 const hangman = {
   answer: undefined,
@@ -26,8 +25,7 @@ function onLoad(){
 }
 
 function getAnswerString(){
-    const randomIndex = Math.floor(Math.random() * Words.length);
-    return Words[randomIndex];
+    return sessionStorage.getItem(Constants.ANSWER_STRING_KEY);
 }
 
 function getHistoryContainerElement(){
