@@ -10,7 +10,7 @@ class Life {
   }
 
   isDead(){
-    return this.remain <= 0;
+    return this.remain < 0;
   }
 }
 

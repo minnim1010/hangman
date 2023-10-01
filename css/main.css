@@ -18,6 +18,12 @@ h1 {
   text-align: center;
 }
 
+.hangman-img-container {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
 .word-container {
   text-align: center;
   margin: 30px 0;
@@ -37,7 +43,7 @@ h1 {
   height: auto;
 }
 
-.keyboard-container {
+.alphabet-container {
   text-align: center;
   margin-top: 20px;
 }

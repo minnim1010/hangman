@@ -1,14 +1,26 @@
 class GuessHistory {
   history = []
 
-  add(c){
-    this.history.push(c)
+  constructor(parentElement) {
+    this.parentElement = parentElement;
   }
 
-  getHistory(){
-    const copy = [...this.history];
-    Object.freeze(copy);
-    return copy;
+  add(c){
+    this.history.push(c)
+
+    const historyElement = this.createHistoryElement(c);
+    this.render(historyElement);
+  }
+
+  createHistoryElement(c){
+    const element = document.createElement('div');
+    element.textContent = c;
+    element.classList.add('history-letter');
+    return element;
+  }
+
+  render(element){
+    this.parentElement.appendChild(element);
   }
 }
 
