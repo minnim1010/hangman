@@ -23,6 +23,7 @@ class Alphabet {
     if (indexes.length === 0) {
       this.handleWrongAlphabet();
     } else {
+      this.element.remove();
       this.handleCorrectAlphabet(alphabet, indexes);
     }
 

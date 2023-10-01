@@ -14,7 +14,7 @@ const hangman = {
 
 window.addEventListener('DOMContentLoaded', onLoad);
 
-function onLoad(){
+function onLoad() {
   const answerString = getAnswerString();
   hangman.answer = new Answer(answerString);
   hangman.guessWord = new GuessWord(answerString, getWordContainerElement());
@@ -24,19 +24,21 @@ function onLoad(){
   render();
 }
 
-function getAnswerString(){
-    return sessionStorage.getItem(Constants.ANSWER_STRING_KEY);
+function getAnswerString() {
+  let item = sessionStorage.getItem(Constants.ANSWER_STRING_KEY);
+  sessionStorage.removeItem(Constants.ANSWER_STRING_KEY);
+  return item;
 }
 
-function getHistoryContainerElement(){
+function getHistoryContainerElement() {
   return document.getElementsByClassName('history-container').item(0);
 }
 
-function getWordContainerElement(){
+function getWordContainerElement() {
   return document.getElementsByClassName('word-container').item(0);
 }
 
-function render(){
+function render() {
   renderAlphabetsView();
 }
 
