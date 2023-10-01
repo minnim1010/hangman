@@ -1,4 +1,4 @@
-.hangman-img {
+.image-container {
   text-align: center;
   margin: 20px 0;
   position: relative;
@@ -16,7 +16,7 @@
   margin: 0 5px;
 }
 
-.hangman-image {
+.image {
   top: 0;
   left: 0;
   width: 100%;

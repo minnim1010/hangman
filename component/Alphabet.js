@@ -35,6 +35,7 @@ class Alphabet {
 
     this.hangman.life.decreaseLife();
     console.log(this.hangman.life.remain);
+    this.hangman.life.renderImageByRemain();
     if (this.hangman.life.isDead()) {
       location.href = "/hangman/fail.html";
     }

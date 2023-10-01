@@ -19,13 +19,14 @@ function onLoad() {
   hangman.answer = new Answer(answerString);
   hangman.guessWord = new GuessWord(answerString, getWordContainerElement());
   hangman.guessHistory = new GuessHistory(getHistoryContainerElement());
-  hangman.life = new Life();
+  hangman.life = new Life(getImageElement());
 
-  render();
+  renderAlphabetsView();
 }
 
 function getAnswerString() {
   let item = sessionStorage.getItem(Constants.ANSWER_STRING_KEY);
+  if (item === null) location.href = "/hangman/index.html";
   sessionStorage.removeItem(Constants.ANSWER_STRING_KEY);
   return item;
 }
@@ -38,8 +39,8 @@ function getWordContainerElement() {
   return document.getElementsByClassName('word-container').item(0);
 }
 
-function render() {
-  renderAlphabetsView();
+function getImageElement() {
+  return document.getElementsByClassName('image').item(0);
 }
 
 function renderAlphabetsView() {
