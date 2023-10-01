@@ -9,7 +9,7 @@ class Alphabet {
   createElement(){
     this.element = document.createElement('div');
     this.element.textContent = this.letter;
-    this.element.classList.add('keyboard-button');
+    this.element.classList.add('alphabet-button');
   }
 
   addClickEvent(){
@@ -31,6 +31,8 @@ class Alphabet {
   }
 
   handleWrongAlphabet() {
+    this.element.style.backgroundColor = "#ff7e6e";
+
     this.hangman.life.decreaseLife();
     console.log(this.hangman.life.remain);
     if (this.hangman.life.isDead()) {
