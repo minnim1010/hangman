@@ -1,5 +1,6 @@
 import {Words} from "../constant/Words.js";
 import {Constants} from "../constant/Constants.js";
+import {SessionStorageUtil} from "../util/SessionStorageUtil.js";
 
 class AnswerCandidate {
   constructor() {
@@ -20,7 +21,7 @@ class AnswerCandidate {
   }
 
   handleClick() {
-    sessionStorage.setItem(Constants.ANSWER_STRING_KEY, this.word);
+    SessionStorageUtil.set(Constants.ANSWER_STRING_KEY, this.word);
     location.href = "/hangman/main.html";
   }
 

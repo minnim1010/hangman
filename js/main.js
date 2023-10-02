@@ -4,6 +4,7 @@ import {GuessHistory} from "../component/GuessHistory.js";
 import {Life} from "../component/Life.js";
 import {Alphabet} from "../component/Alphabet.js";
 import {Constants} from "../constant/Constants.js";
+import {SessionStorageUtil} from "../util/SessionStorageUtil.js";
 
 const hangman = {
   answer: undefined,
@@ -25,9 +26,8 @@ function onLoad() {
 }
 
 function getAnswerString() {
-  let item = sessionStorage.getItem(Constants.ANSWER_STRING_KEY);
+  let item = SessionStorageUtil.getAndRemove(Constants.ANSWER_STRING_KEY);
   if (item === null) location.href = "/hangman/index.html";
-  sessionStorage.removeItem(Constants.ANSWER_STRING_KEY);
   return item;
 }
 
