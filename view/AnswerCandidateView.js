@@ -16,7 +16,7 @@ class AnswerCandidateView {
   }
 
   addClickEvent() {
-    this.element.addEventListener('click', () => this.handleClick());
+    this.element.addEventListener('click', event => this.handleClick(event));
   }
 
   handleClick() {

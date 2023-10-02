@@ -38,16 +38,16 @@ class AlphabetView {
     this.element.style.backgroundColor = "#ff7e6e";
 
     this.hangman.lifeView.life.decreaseLife();
-    this.hangman.lifeView.render();
     if (this.hangman.lifeView.life.isDead()) {
-      location.href = Url.GUESS_RESULT_FAIL;
+      location.href = Url.GUESS_FAIL;
     }
+    this.hangman.lifeView.render();
   }
 
   handleCorrectAlphabet(alphabet, indexes) {
     this.hangman.guessWordView.guessWord.setAlphabet(indexes, alphabet);
     if (this.hangman.guessWordView.guessWord.isCompleted()) {
-      location.href = Url.GUESS_RESULT_SUCCESS;
+      location.href = Url.GUESS_SUCCESS;
     }
     this.hangman.guessWordView.render();
   }

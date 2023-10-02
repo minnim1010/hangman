@@ -28,7 +28,7 @@ class LifeView {
   }
 
   getImageSrcByRemainLife() {
-    let imgNum = this.life.remain < 0 ? 0 : this.life.remain;
+    let imgNum = this.life.remain <= 0 ? 0 : this.life.remain;
     return `img/life_${imgNum}.png`;
   }
 }

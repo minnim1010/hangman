@@ -18,10 +18,8 @@ class HtmlElementUtil {
     parentElement.appendChild(childElement);
   }
 
-  static removeAllChildren(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
+  static removeContent(element) {
+    element.innerText = "";
   }
 }
 

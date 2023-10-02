@@ -16,7 +16,7 @@ class GuessWordView {
   }
 
   render() {
-    HtmlElementUtil.removeAllChildren(this.rootElement);
+    HtmlElementUtil.removeContent(this.rootElement);
 
     this.guessWord.word.forEach(letter => {
       const element = this.createElement(letter);
