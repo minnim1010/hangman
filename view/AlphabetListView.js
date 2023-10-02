@@ -8,11 +8,11 @@ class AlphabetListView {
   element;
   hangman;
 
-  constructor(hangman, DomRoot) {
+  constructor(hangman, domRoot) {
     this.hangman = hangman;
 
     this.element = HtmlElementUtil.createDiv("", this.ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.element);
+    HtmlElementUtil.appendElement(domRoot, this.element);
 
     this.render();
   }

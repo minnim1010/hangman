@@ -11,19 +11,24 @@ import {SessionStorageUtil} from "../util/SessionStorageUtil.js";
 import {Constants} from "../constant/Constants.js";
 import {Url} from "../constant/Url.js";
 import Router from "../router/Router.js";
-import {ImageView} from "../view/ImageView.js";
+import {ResultView} from "../view/ResultView.js";
 
 const root = document.getElementById("root");
+let answerString;
 
 const pages = {
   selectAnswer: () => {
     root.innerText = "";
+
     new AnswerCandidateListView(root);
   },
   guessWord: () => {
     root.innerText = "";
-    const answerString = SessionStorageUtil.getAndRemove(Constants.ANSWER_STRING_KEY);
-    if (answerString === null) location.href = Url.SELECT_WORD;
+    answerString = SessionStorageUtil.getAndRemove(Constants.ANSWER_STRING_KEY);
+    if (answerString === null) {
+      location.href = Url.SELECT_WORD;
+      return;
+    }
 
     const answer = new Answer(answerString);
     const lifeView = new LifeView(root, new Life());
@@ -33,11 +38,15 @@ const pages = {
   },
   success: () => {
     root.innerText = "";
-    new ImageView(root, "success");
+
+    new ResultView(root, "success", answerString);
+    answerString = null;
   },
   fail: () => {
     root.innerText = "";
-    new ImageView(root, "fail");
+
+    new ResultView(root, "fail", answerString);
+    answerString = null;
   }
 }
 

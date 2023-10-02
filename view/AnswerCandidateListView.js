@@ -9,10 +9,12 @@ class AnswerCandidateListView {
 
   element;
 
-  constructor(DomRoot) {
-    this.element = HtmlElementUtil.createDiv("", this.ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.element);
+  constructor(domRoot) {
+    const msgElement = HtmlElementUtil.createH1("단어를 선택해주세요!");
+    HtmlElementUtil.appendElement(domRoot, msgElement);
 
+    this.element = HtmlElementUtil.createDiv("", this.ELEMENT_CLASS);
+    HtmlElementUtil.appendElement(domRoot, this.element);
     this.render();
   }
 

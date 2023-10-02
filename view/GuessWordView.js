@@ -7,9 +7,9 @@ class GuessWordView {
   rootElement;
   guessWord;
 
-  constructor(DomRoot, guessWord) {
+  constructor(domRoot, guessWord) {
     this.rootElement = HtmlElementUtil.createDiv("", this.ROOT_ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.rootElement);
+    HtmlElementUtil.appendElement(domRoot, this.rootElement);
     this.guessWord = guessWord;
 
     this.render();

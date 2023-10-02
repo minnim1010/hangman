@@ -14,6 +14,13 @@ class HtmlElementUtil {
     return element;
   }
 
+  static createH1(textContent, classList) {
+    const element = document.createElement('h1');
+    element.textContent = textContent;
+    element.classList.add(classList);
+    return element;
+  }
+
   static appendElement(parentElement, childElement) {
     parentElement.appendChild(childElement);
   }

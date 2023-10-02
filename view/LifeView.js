@@ -9,9 +9,9 @@ class LifeView {
   life;
   imgElement;
 
-  constructor(DomRoot, life) {
+  constructor(domRoot, life) {
     this.rootElement = HtmlElementUtil.createDiv("", this.ROOT_ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.rootElement);
+    HtmlElementUtil.appendElement(domRoot, this.rootElement);
     this.life = life;
     this.imgElement = this.createImgElement();
   }

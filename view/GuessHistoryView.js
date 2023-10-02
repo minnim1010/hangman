@@ -8,9 +8,9 @@ class GuessHistoryView {
   rootElement;
   guessHistory;
 
-  constructor(DomRoot, guessHistory) {
+  constructor(domRoot, guessHistory) {
     this.rootElement = HtmlElementUtil.createDiv("", this.ROOT_ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.rootElement);
+    HtmlElementUtil.appendElement(domRoot, this.rootElement);
 
     this.guessHistory = guessHistory;
   }

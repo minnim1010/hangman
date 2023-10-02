@@ -40,6 +40,7 @@ class AlphabetView {
     this.hangman.lifeView.life.decreaseLife();
     if (this.hangman.lifeView.life.isDead()) {
       location.href = Url.GUESS_FAIL;
+      return;
     }
     this.hangman.lifeView.render();
   }
@@ -48,6 +49,7 @@ class AlphabetView {
     this.hangman.guessWordView.guessWord.setAlphabet(indexes, alphabet);
     if (this.hangman.guessWordView.guessWord.isCompleted()) {
       location.href = Url.GUESS_SUCCESS;
+      return;
     }
     this.hangman.guessWordView.render();
   }
