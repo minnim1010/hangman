@@ -1,5 +1,7 @@
 class Answer {
 
+  letterList;
+
   constructor(word) {
     this.letterList = word.split("");
   }

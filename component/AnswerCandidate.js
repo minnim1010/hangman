@@ -1,8 +1,15 @@
 import {Words} from "../constant/Words.js";
 import {Constants} from "../constant/Constants.js";
 import {SessionStorageUtil} from "../util/SessionStorageUtil.js";
+import {Url} from "../constant/Url.js";
 
 class AnswerCandidate {
+
+  ROOT_ELEMENT_CLASS = 'answer-candidate-container';
+  ELEMENT_CLASS = 'answer-candidate';
+
+  word;
+
   constructor() {
     this.word = this.getAnswerCandidateString();
 
@@ -13,7 +20,7 @@ class AnswerCandidate {
   createElement() {
     this.element = document.createElement('div');
     this.element.textContent = this.word;
-    this.element.classList.add('answer');
+    this.element.classList.add(this.ELEMENT_CLASS);
   }
 
   addClickEvent() {
@@ -22,7 +29,7 @@ class AnswerCandidate {
 
   handleClick() {
     SessionStorageUtil.set(Constants.ANSWER_STRING_KEY, this.word);
-    location.href = "/hangman/main.html";
+    location.href = Url.GUESS_WORD;
   }
 
   getAnswerCandidateString() {
