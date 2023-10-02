@@ -1,15 +1,17 @@
 import {HtmlElementUtil} from "../util/HtmlElementUtil.js";
 import {Constants} from "../constant/Constants.js";
 import {AnswerCandidate} from "../component/AnswerCandidate.js";
+import {AnswerCandidateView} from "./AnswerCandidateView.js";
 
 class AnswerCandidateListView {
-  ROOT_ELEMENT_CLASS = 'answer-candidate-container';
 
-  rootElement;
+  ELEMENT_CLASS = 'answer-candidate-container';
+
+  element;
 
   constructor(DomRoot) {
-    this.rootElement = HtmlElementUtil.createDiv("", this.ROOT_ELEMENT_CLASS);
-    HtmlElementUtil.appendElement(DomRoot, this.rootElement);
+    this.element = HtmlElementUtil.createDiv("", this.ELEMENT_CLASS);
+    HtmlElementUtil.appendElement(DomRoot, this.element);
 
     this.render();
   }
@@ -17,7 +19,8 @@ class AnswerCandidateListView {
   render() {
     for (let i = 0; i < Constants.ANSWER_CANDIDATE_SIZE; ++i) {
       const answerCandidate = new AnswerCandidate();
-      answerCandidate.render(this.rootElement)
+      const answerCandidateView = new AnswerCandidateView(answerCandidate);
+      answerCandidateView.render(this.element)
     }
   }
 }
